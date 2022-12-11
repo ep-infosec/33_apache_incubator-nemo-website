@@ -1,0 +1,70 @@
+# Site settings
+title: Nemo
+email: nemo@spl.snu.ac.kr
+description: >
+  A Data Processing System for Flexible Employment With Different Deployment Characteristics.
+lang: en-US
+
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: http://nemo.apache.org/ # the base hostname & protocol for your site
+git_address: https://github.com/apache/incubator-nemo
+git_edit_address: https://github.com/apache/incubator-nemo-website/blob/asf-site
+
+# theme options from https://bootswatch.com/3/
+# comment out this to use default Bootstrap
+bootwatch: readable # paper # cerulean cosmo custom cyborg darkly flatly journal lumen readable sandstone simplex slate solar spacelab superhero united yeti
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+# Plugins (previously gems:)
+plugins:
+  - jekyll-feed
+  - jekyll-redirect-from
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - .idea/
+  - .gitignore
+  - README.md
+  - vendor
+timezone: Asia/Seoul
+defaults:
+- scope:
+    path: _posts
+    type: posts
+  values:
+    layout: post
+    sectionid: blog
+
+- scope:
+    path: _docs
+    type: docs
+  values:
+    layout: docs
+    sectionid: docs
+    seo:
+      type: "WebPage"
+
+- scope:
+    path: _pages
+    type: pages
+  values:
+    layout: page
+    sectionid: pages
+    seo:
+      type: "WebPage"
+
+collections:
+  docs:
+    permalink: /:collection/:path/
+    output: true
+  pages:
+    permalink: /:collection/:path/
+    output: true
+  posts:
+    permalink: /blog/:year/:month/:day/:title/
+    output: true
